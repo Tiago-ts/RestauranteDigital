@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<style>
+body {
+	background: rgb(2,0,36);
+	background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(56,9,121,1) 38%, rgba(0,95,255,1) 100%);;
+	color: #F0FFF0;
+	font-size: 22px;
+}
+
+.center {
+	margin-right: auto;
+	margin-left: auto;
+	marngin-bottom: auto;
+	width: 3em;
+}
+</style>
+
+</h:head>
+
+<h:body>
+ <h:form id="formLogin">
+ <h:panelGrid cellspacing="10">
+	<h2>Cadastro</h2>
+	Nome:
+	<p:inputText value="#{cadastro.nome}" />
+	<br />
+	Cpf:
+	<p:inputText value="#{cadastro.cpf}" />
+	<br />
+	Cidade:
+	<p:inputText value="#{cadastro.cidade}" />
+	<br />
+	Logradouro:
+	<p:inputText value="#{cadastro.logradouro}" />
+	<br />
+	UF:
+	<p:inputText value="#{cadastro.uf}" />
+	<br />
+	CEP:
+	<p:inputText value="#{cadastro.cep}" />
+	<br />
+	
+	Login
+	<p:inputText value="#{cadastro.login}" />
+	<br />
+	Criar Senha:
+	<p:password type="password" value="#{cadastro.senha}" id="password" promplLabel="Inserir senha" feedback="false" required="True" match="confirmar"
+	validatorMessage="Senhas diferentes"
+	/>
+	<br />
+	Confirmar senha:
+	<p:password type="password" value="#"  id="confirmar" promplLabel="Confirmar senha" feedback="false" required="True" />
+	<br />
+	<div class="center">
+	<p:commandButton action="#{cadastro.cadastrar()}" value="Salvar" type="submit" />
+		
+	<h1>Já cadastrado?</h1><h:link value ="Fazer Login" outcome="index.xhtml" oncomplete="PF('carDialog').show()" style="float: left"/>
+	</div>
+ </h:panelGrid >
+ </h:form>
+
+ <p:dialog  widgetVar="ConfirmacaoDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+        <p:outputPanel id="carDetail" style="text-align:center;">
+            <p:commandButton value="OK" />
+         
+        </p:outputPanel>
+    </p:dialog>
+</h:body>
+
+</html>
+

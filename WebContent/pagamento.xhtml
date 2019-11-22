@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+	<style>
+body {
+	background: rgb(17,96,119);
+	background: linear-gradient(90deg, rgba(17,96,119,1) 0%, rgba(9,121,103,1) 50%, rgba(0,224,255,1) 100%);
+}
+</style>
+</h:head>
+<h:body>
+	<p:dock position="bottom">
+		<p:menuitem value="Home"
+			icon="icons8-casa-104.png"
+			url="MenuView.xhtml" />
+		<p:menuitem value="Pratos"
+			icon="icons8-talheres-256.png"
+			url="pratos.xhtml" />
+		<p:menuitem value="Meus Pedidos"
+			icon="icons8-nota-64.png"
+			url="pedidos.xhtml" />
+			
+		<p:menuitem value="Pagamento"
+			icon="de-dinheiro.png" url="#" />
+		<p:menuitem value="Sair"
+			icon="sair.png" url="index.xhtml" />
+	</p:dock>
+	
+
+  <p:dialog visible="true" width="400" height="500" header="Acessar o Sistema" showHeader="false" modal="true" resizable="false">            
+            <h:panelGrid style="margin: 0 auto;"><h:outputText styleClass="fa fa-lock fa-5x"/></h:panelGrid>
+            <h:form id="form11">
+                <h:panelGrid cellspacing="10">
+                    Opa! Hora de finalizar o seu pedido.                    
+                    <p:messages id="messagesLogin"/>
+                    <p:outputLabel value="Valor da comanda R$#{Comanda.valorTotalDaComanda}"/>
+                    <p:outputLabel value="Valor da comanda #{pedido.ped.idPedido}"/>
+                    <p:inputText placeholder="Valor pago" value="#{pagar.valorPago}" size="40" required="true" requiredMessage="Vc precisa me pagar! ta doido?"/>
+                    <div style="background-color: blue ">
+                    <p:commandButton value="Realizar Pagamento" action="#{pagar.pagar(Comanda.valorTotalDaComanda, pedido.ped)}" update="messagesLogin"  style="float: left"/>
+                    
+                    </div>
+                    
+                </h:panelGrid>
+            </h:form>
+        </p:dialog>
+</h:body>
+
+
+
+</html>

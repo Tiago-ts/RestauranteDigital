@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<style>
+	body{
+	background: rgb(17,96,119);
+background: linear-gradient(90deg, rgba(17,96,119,1) 0%, rgba(9,121,103,1) 50%, rgba(0,224,255,1) 100%);
+	</style>
+</h:head>
+<h:body>
+<h:form>
+	<p:dock position="bottom">
+		<p:menuitem value="Home"
+			icon="icons8-casa-104.png"
+			url="MenuView.xhtml" />
+		<p:menuitem value="Pratos"
+			icon="icons8-talheres-256.png"
+			action="#{pedido.goToPratos()}" />
+		<p:menuitem value="Meus Pedidos"
+			icon="icons8-nota-64.png"
+			action="#{listarPedidos.listarPedidos(login.usuario)}" />
+			<p:menuitem value="Comanda"
+			icon="icons8-nota-64.png"
+			action="#{Comanda.goToComanda(login.usuario)}" />
+		<p:menuitem value="Pagamento"
+			icon="de-dinheiro.png" url="pagamento.xhtml" />
+		<p:menuitem value="Sair"
+			icon="sair.png" url="index.xhtml" />
+	</p:dock>
+	<style type="text/css">
+    .value {
+        font-weight: bold;
+    }
+</style>
+</h:form>
+</h:body>
+</html>

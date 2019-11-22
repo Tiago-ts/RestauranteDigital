@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Login</title>         
+        <h:outputStylesheet library="css" name="logincss.css"/>
+        	<style>
+body {background: rgb(17,96,119);
+background: linear-gradient(90deg, rgba(17,96,119,1) 0%, rgba(9,121,103,1) 50%, rgba(0,224,255,1) 100%);
+	
+}
+</style>
+   
+    </h:head>
+    
+    <h:body>
+        <p:dialog visible="true" width="400" height="500" header="Acessar o Sistema" showHeader="false" modal="true" resizable="false">            
+            <h:panelGrid style="margin: 0 auto;"><h:outputText styleClass="fa fa-lock fa-5x"/></h:panelGrid>
+            <h:form id="formLogin">
+                <h:panelGrid cellspacing="10">
+                    Digite seu usuário e senha para ter acesso ao sistema:                    
+                    <p:messages id="messagesLogin"/>
+                    <p:inputText placeholder="Usuário" value="#{login.login}" size="40" required="true" requiredMessage="Campo Login é obrigatório"/>
+                    <p:password placeholder="Senha" value="#{login.senha}" size="40" required="true" requiredMessage="Campo Senha é obrigatório"/>
+                    <div style="background-color: blue ">
+              
+                    <p:commandButton value="Log In" action="#{login.logIn()}" update="messagesLogin"  style="float: left"/>
+                    
+                    <h:link value ="Cadastrar usuario" outcome="CadastroUsuario.xhtml"  style="float: rigth"/>
+                    
+                    </div>
+                    
+                </h:panelGrid>
+            </h:form>
+        </p:dialog>
+        
+    </h:body>
+</html>
